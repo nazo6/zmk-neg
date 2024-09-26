@@ -1,0 +1,32 @@
+[tasks.zmk-init]
+script = '''
+echo "Cloning ZMK"
+git clone https://github.com/zmkfirmware/zmk.git --depth 1
+cd zmk
+uv run -- west init -l ./app
+uv run -- west update
+uv run -- west zephyr-export
+uv pip install -r zephyr/scripts/requirements-base.txt
+'''
+
+[tasks.zmk-update]
+script = '''
+echo "Updating ZMK"
+cd zmk
+git pull
+uv run -- west update
+'''
+
+[tasks.first-build]
+script = '''
+cd zmk/app
+uv run -- west build -d build/left -b nice_nano_v2 -- -DSHIELD=keyball61_left -DZMK_EXTRA_MODULES="../../keyball"
+uv run -- west build -d build/right -b nice_nano_v2 -- -DSHIELD=keyball61_right -DZMK_EXTRA_MODULES="../../keyball"
+'''
+
+[tasks.build]
+script = '''
+cd zmk/app
+uv run -- west build -d build/left
+uv run -- west build -d build/right
+'''
