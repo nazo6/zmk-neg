@@ -17,16 +17,22 @@ git pull
 uv run -- west update
 '''
 
-[tasks.first-build]
+[tasks.clean-build]
 script = '''
 cd zmk/app
-uv run -- west build -p -d build/right -b nice_nano_v2 -- -DSHIELD=negl_right -DZMK_EXTRA_MODULES="../../neg"
-uv run -- west build -p -d build/left -b nice_nano_v2 -- -DSHIELD=negl_left -DZMK_EXTRA_MODULES="../../neg"
+uv run -- west build -p -d build/right -b nice_nano_v2 -- -DSHIELD=negl_right -DZMK_EXTRA_MODULES="../../neg" -DZMK_CONFIG="../../zmk-config/config"
+# uv run -- west build -p -d build/left -b nice_nano_v2 -- -DSHIELD=negl_left -DZMK_EXTRA_MODULES="../../neg" -DZMK_CONFIG="../../zmk-config/config"
+'''
+
+[tasks.clean-build-log]
+script = '''
+cd zmk/app
+uv run -- west build -p -d build/right -b nice_nano_v2 -S zmk-usb-logging -- -DSHIELD=negl_right -DZMK_EXTRA_MODULES="../../neg" -DZMK_CONFIG="../../zmk-config/config"
 '''
 
 [tasks.normal-build]
 script = '''
 cd zmk/app
 uv run -- west build -d build/right
-uv run -- west build -d build/left
+# uv run -- west build -d build/left
 '''

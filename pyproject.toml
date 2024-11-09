@@ -4,4 +4,8 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = ["west>=1.2.0"]
+dependencies = [
+    "grpcio-tools>=1.67.1",
+    "protobuf>=5.28.3",
+    "west>=1.2.0",
+]
