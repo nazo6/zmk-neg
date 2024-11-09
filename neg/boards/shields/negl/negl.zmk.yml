@@ -1,0 +1,11 @@
+file_format: "1"
+id: negl
+name: negL
+type: shield
+url: https://github.com/nazo6/neg
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - negl_left
+  - negl_right

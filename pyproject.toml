@@ -1,9 +1,7 @@
 [project]
-name = "keyball-zmk"
+name = "zmk-neg"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
-    "west>=1.2.0",
-]
+dependencies = ["west>=1.2.0"]

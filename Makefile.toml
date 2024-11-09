@@ -20,13 +20,13 @@ uv run -- west update
 [tasks.first-build]
 script = '''
 cd zmk/app
-uv run -- west build -d build/left -b nice_nano_v2 -- -DSHIELD=keyball61_left -DZMK_EXTRA_MODULES="../../keyball"
-uv run -- west build -d build/right -b nice_nano_v2 -- -DSHIELD=keyball61_right -DZMK_EXTRA_MODULES="../../keyball"
+uv run -- west build -p -d build/right -b nice_nano_v2 -- -DSHIELD=negl_right -DZMK_EXTRA_MODULES="../../neg"
+uv run -- west build -p -d build/left -b nice_nano_v2 -- -DSHIELD=negl_left -DZMK_EXTRA_MODULES="../../neg"
 '''
 
-[tasks.build]
+[tasks.normal-build]
 script = '''
 cd zmk/app
-uv run -- west build -d build/left
 uv run -- west build -d build/right
+uv run -- west build -d build/left
 '''

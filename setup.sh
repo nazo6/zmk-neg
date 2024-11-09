@@ -9,5 +9,5 @@ else
   cd zmk
   uv run -- west init -l /app
   uv run -- west update
-  ln -s ../../../../keyball/boards/shields/keyball61 ./app/boards/shields/keyball61
+  ln -s ../../../../neg/boards/shields/negl ./app/boards/shields/negl
 fi
